@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
-import Chart from "../../components/Chart";
+import Chart from "../components/Chart";
 
 // New component for Risk Level Input
 function RiskLevelInput({ riskLevel, setRiskLevel }) {
   return (
     <label>
-      Select Your Risk Level (1-5):
+      <b>Select Your Risk Level (1-5):</b>
       <input
         type="number"
         min="1"
@@ -38,7 +38,7 @@ export default function Dashboard() {
   const [chartData, setChartData] = useState([]);
 
   const handleRecommendation = async () => {
-    const apiRoute = `/api/recommendations?riskLevel=${riskLevel}`;
+    const apiRoute = `/api/crypto-recommendations?riskLevel=${riskLevel}`;
     const response = await fetch(apiRoute);
     const result = await response.json();
     const recommendedAssets = result.recommendations;
@@ -61,7 +61,7 @@ export default function Dashboard() {
       </div>
       <div className="grid grid-cols-7 gap-6 mt-5">
         <div className="col-span-3">
-          <h2 className="">Recommended Assets:</h2>
+          <h2 className="font-bold">Recommended Assets:</h2>
           <ul>
             {recommendations.map((asset, index) => (
               <li key={index}>{asset.name}</li>
