@@ -64,7 +64,7 @@ export default function Dashboard() {
           <h2 className="font-bold">Recommended Assets:</h2>
           <ul>
             {recommendations.map((asset, index) => (
-              <li key={index}>{asset.name}</li>
+              <li key={index}>{asset.name} - ${asset.current_price}</li>
             ))}
           </ul>
         </div>
